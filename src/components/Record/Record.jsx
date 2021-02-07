@@ -40,6 +40,13 @@ const Record = () => {
     // });
     // await axios.delete('https://church-payment.herokuapp.com/payments' + id);
 
+    await axios
+      .delete(`https://church-payment.herokuapp.com/payments/${id}`)
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      });
+
     setPayments(filteredPayments);
   };
 
