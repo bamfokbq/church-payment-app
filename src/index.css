@@ -15,5 +15,5 @@ body{
   background-color: #ffffff;
   color: #666666;
   font-family: Lato;
-  font-size: calc(100vw / 5rem);
+  font-size: calc(100vw / 5);
 }
