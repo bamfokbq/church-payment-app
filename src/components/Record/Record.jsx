@@ -4,8 +4,7 @@ import './Record.css';
 import axios from 'axios';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-// import useFetch from '../../useFetch';
+// import EditIcon from '@material-ui/icons/Edit';
 import Search from '../Search/Search';
 import { Link } from 'react-router-dom';
 import Progress from './Progress/Progress';
@@ -29,25 +28,14 @@ const Record = () => {
   const handleDelete = async (id) => {
     const filteredPayments = await payments.filter(
       (payment) => payment._id !== id
-    )
-
-    // fetch('https://church-payment.herokuapp.com/payments' + id, {
-    //   method: 'DELETE',
-    //   header: {
-    //    Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    // });
-    // await axios.delete('https://church-payment.herokuapp.com/payments' + id);
+    );
 
     await axios
       .delete(`https://church-payment.herokuapp.com/payments/${id}`)
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
+        setPayments(filteredPayments);
+        return res.data;
       });
-
-    setPayments(filteredPayments);
   };
 
   return (
@@ -68,7 +56,7 @@ const Record = () => {
                 <th>Date</th>
                 <th>Narration</th>
                 <th></th>
-                <th></th>
+                {/*<th></th> */}
                 <th></th>
               </tr>
             </thead>
@@ -90,11 +78,11 @@ const Record = () => {
                         <VisibilityIcon className='icons' />
                       </Link>
                     </td>
-                    <td className='icon icon-edit'>
+                    {/*<td className='icon icon-edit'>
                       <Link className='edit-remove' to={`/edit/${payment._id}`}>
                         <EditIcon className='icons' />
                       </Link>
-                    </td>
+                    </td> */}
                     <td className='icon icon-delete'>
                       <DeleteIcon
                         className='icons'

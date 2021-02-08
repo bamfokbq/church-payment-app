@@ -29,8 +29,8 @@ img{
 }
 .title p{
     letter-spacing: 2px;
-    color: rgb(102, 102, 102);
-    font-weight: bold;
+    color: #f6ab13;
+    font-weight: 700;
 }
 
 .user-info{

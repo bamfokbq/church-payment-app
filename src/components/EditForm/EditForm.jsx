@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './EditForm.css';
 import { useHistory, useParams } from 'react-router-dom';
 import Header from '../Header/Header';
-import useFetch from '../../useFetch';
+// import useFetch from '../../useFetch';
 
 const EditForm = () => {
-  const [isOpen] = useState(false);
+  // const [isOpen] = useState(false);
   const history = useHistory();
   const { id } = useParams();
+  const [payment, setPayment] = useState([]);
 
-  const { data: payment } = useFetch(
-    'https://church-payment.herokuapp.com/payments' + id
-  );
+  useEffect(() => {
+    const fetchPayment = async () => {
+      await axios
+        .get(`https://church-payment.herokuapp.com/payments/${id}`)
+        .then((res) => {
+          setPayment(res.data);
+        });
+    };
+
+    fetchPayment();
+  }, [id]);
 
   const [paymentData, setPaymentData] = useState({
     memberName: '',
@@ -20,7 +29,7 @@ const EditForm = () => {
     paymentType: '',
     amount: '',
     narration: '',
-    date: ''
+    date: '',
   });
 
   const clear = () => {
@@ -50,7 +59,7 @@ const EditForm = () => {
   return (
     <div className='form-center'>
       <Header />
-      {!isOpen && (
+      {payment ? (
         <div className='form-container container'>
           <form onSubmit={handleSubmit}>
             <div className='form-element'>
@@ -163,7 +172,13 @@ const EditForm = () => {
             </div>
           </form>
         </div>
-      )}
+      ) : (
+          (
+            (
+              <h4>Loading...</h4>
+            )
+          )
+        )}
     </div>
   );
 };
