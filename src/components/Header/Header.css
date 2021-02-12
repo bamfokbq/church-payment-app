@@ -27,3 +27,9 @@ color: #1a1919
 .header a:hover{
     color:#444444
 }
+
+.header__logo{
+    height: clamp(3vw,3rem, 7vw);
+    width: clamp(3vw,3rem, 7vw);
+
+}

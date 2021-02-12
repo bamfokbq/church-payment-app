@@ -15,11 +15,11 @@ const InfoPreview = () => {
       await axios
         .get(`https://church-payment.herokuapp.com/payments/${id}`)
         .then((res) => {
-         setPayment(res.data)
+          setPayment(res.data);
         });
-      };
+    };
 
-    fetchPayment()
+    fetchPayment();
   }, [id]);
 
   const handlePrint = () => {
@@ -33,25 +33,42 @@ const InfoPreview = () => {
     <div className='preview'>
       <div className='title'>
         <img src={logo} alt='Church Logo' />
+        <h4 className='church__name'>Latebiorkorshie Circuit Grace Society</h4>
         <p>{moment().format('MMM Do YY').toUpperCase()}</p>
       </div>
-      <div className='user-info'>
-        <h3>{payment.memberName}</h3>
-        <p>0{payment.telephone}</p>
-      </div>
+
       <div className='content'>
+        <div className='content__info'>
+          <p>Date</p>
+          <p className='border'>
+            {moment(payment.date).format('MMMM Do YYYY')}
+          </p>
+        </div>
+        <div className='content__info'>
+          <p>From</p>
+          <p className='border'>{payment.memberName}</p>
+        </div>
+        <div className='content__info'>
+          <p>Amount</p>
+          <p className='border'>
+            {payment.currency} {payment.amount}
+          </p>
+        </div>
+        <div className='content__info'>
+          <p>For</p>
+          <p className='border'>{payment.narration}</p>
+        </div>
+        <div className='content__info'>
+          <p>By</p>
+          <p className='border'>{payment.memberName}</p>
+        </div>
+      </div>
+      <div className='payment__mode'>
+        <h4>PAID WITH {payment.paymentMethod}</h4>
         <p>
-          An amount of <b>GHS{payment.amount}</b> was paid for{' '}
-          <b>{payment.paymentType}</b> at{' '}
-          <b>{moment(payment.date).format('MMM Do YY')}</b>.
+          ...Always give yourselves fully to the work of the Lord, because you
+          know that your labor in the Lord is not in vain. (1 Corinthians 15:58)
         </p>
-      </div>
-      <div className='narration-info'>
-        <h4>Narration</h4>
-        <p>{payment.narration}</p>
-      </div>
-      <div className='thanks'>
-        <h2>Thanks</h2>
       </div>
 
       <div className='print-btn'>

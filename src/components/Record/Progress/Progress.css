@@ -11,8 +11,12 @@
      color: hsl(240, 7%, 13%);
      font-weight: bold;
 }
+.data__info-message{
+    font-size: 1.5rem;
 
-.bouncingLoader > div, .bouncingLoader:before, .bouncingLoader:after {
+}
+
+/* .bouncingLoader > div, .bouncingLoader:before, .bouncingLoader:after {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -36,17 +40,17 @@
 
 .bouncingLoader:after {
     animation-delay: 0.4s;
-}
-
+} */
+/* 
 @keyframes bouncing-loader {
     to {
         opacity: 0.1;
         transform: translate3d(0, -16px, 0);
     }
-}
+} */
 
 .slideUpBtn {
-    padding: 12px 24px;
+    padding: 12px 44px;
     background-color: transparent;
     border: 2px solid hsl(240, 7%, 13%);
     border-radius: 6px;

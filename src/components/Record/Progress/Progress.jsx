@@ -4,8 +4,8 @@ import './Progress.css';
 const Progress = () => {
   return (
     <div className='progress'>
-      <div className='bouncingLoader'>
-        <div></div>
+      <div className='data__info-message'>
+        <h4>No data to show...</h4>
       </div>
       <Link to='/payment'>
         <div className='slideUpBtn'>

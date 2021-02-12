@@ -1,5 +1,5 @@
 .preview{
-  width: 80vw;
+  width: 90vw;
   margin: 0 auto;
 }
 
@@ -12,8 +12,13 @@
     text-align: center;
 }
 img{
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
+}
+
+.church__name{
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    text-transform: uppercase;
 }
 
 .title{
@@ -40,70 +45,63 @@ img{
     margin-bottom: 5px;
 }
 
-/* TABLE */
+/* CONTENT TO DISPLAY */
 .content{
-    width: 100%;
-    margin: 20px 0;
+    margin: 0 auto;
+    max-width: 45vw;
+    border-bottom: 2px solid gray ;
+    padding-bottom: 2rem;
 }
-
-.preview-table {
-    border-spacing: 0;
-    color: #5A5A5A;
-    font-size: clamp(0.8vw, 1.5rem, 1vw);
-    width: 100%;
-    margin: 0px auto;
+.content__info{
+    margin: 0rem auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
 }
-
-.preview-table tr th{
-    background-color: #e7e7e7;
-    font-size: clamp(0.8vw, 1.5rem, 1.2vw );
-    padding: 10px;
+.content__info  p:first-child{
+    color: #b3b3b3;
+    padding: 5px 10px;
     text-transform: uppercase;
-    text-align: left;
 }
-
-.preview-table tr td {
-    background-color: #fff;
-    border: 0;
-    padding: 10px;
-}
-.td-date{
-    width: 400px;
-}
-
-.preview-table tr:nth-of-type(odd) td{
-    background-color: #f9f9f9;
-}
-
-.preview-table tr:last-of-type td{
-    border-bottom: 0;
-}
-
-.narration-info h4{
-   border-bottom: 2px solid gray ;
-}
-
-.narration-info p{
-    padding: 15px 0px;
-}
-
-.thanks{
-    margin: 50px auto;
-    text-align: center;
+.border{
+    border: 1.5px solid #eee;
+    width: 80%;
+    padding: 5px 10px;
+    margin-right: -1.8rem;
+    
 }
 
 /* PRINT BUTTON */
 .print-save-btn{
-    padding: 10px 15px;
-    font-weight: bold;
+    padding: 12px 20px;
+    color: #363636;
+   font-size: 1.2rem;
     background-color: #FFC145;
     border: none;
     outline: none;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.4);
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
     cursor: pointer;
 }
 
 .print-save-btn:hover{
      box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
-      background-color: #f8b93b;
+    /* background-color: #f6bb44; */
+    opacity: 0.8;
+}
+/* PAYMENT MODE */
+.payment__mode{
+    margin: 0 auto;
+    max-width: 30vw;
+    margin-top: 2rem;
+}
+.payment__mode h4{
+    text-align: center;
+    background: #EAE;
+    margin: 1rem auto;
+    padding: 5px 12px;
+}
+.payment__mode p{
+    text-align: center;
+    margin: 0 auto;
+    /* width: 30ch; */
 }

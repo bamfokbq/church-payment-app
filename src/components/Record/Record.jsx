@@ -10,20 +10,25 @@ import { Link } from 'react-router-dom';
 import Progress from './Progress/Progress';
 import { truncateString } from '../../utils/utils';
 import Header from '../Header/Header';
+import Spinner from '../../utils/Spinner/Spinner';
 
 const Record = () => {
   const [payments, setPayments] = useState([]);
+  const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
         'https://church-payment.herokuapp.com/payments'
       );
+      if (!response.data.length) {
+        setIsShow(true);
+      }
       setPayments(response.data);
     }
 
     fetchData();
-  }, []);
+  }, [setIsShow]);
 
   const handleDelete = async (id) => {
     const filteredPayments = await payments.filter(
@@ -42,7 +47,7 @@ const Record = () => {
     <>
       <Header />
       {!payments.length ? (
-        <Progress />
+        <div>{isShow ? <Progress /> : <Spinner />}</div>
       ) : (
         <div>
           <Search />
@@ -66,7 +71,9 @@ const Record = () => {
                 return (
                   <tr key={payment._id}>
                     <td>{payment.memberName}</td>
-                    <td>GHS {payment.amount}</td>
+                    <td>
+                      {payment.currency} {payment.amount.toFixed(2)}
+                    </td>
                     <td>0{payment.telephone}</td>
                     <td>{payment.paymentType}</td>
                     <td>{format(new Date(payment.date), 'dd-MM-yyyy')}</td>

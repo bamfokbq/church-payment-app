@@ -1,11 +1,12 @@
 import React from 'react';
 import './Header.css';
+import logo from '../assets/logo.png';
 
 import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <header className='header'>
-      <h1>PAYMENTS</h1>
+      <img className='header__logo' src={logo} alt='Methodist Logo' />
       <ul>
         <li>
           <Link to='/record'>Record</Link>

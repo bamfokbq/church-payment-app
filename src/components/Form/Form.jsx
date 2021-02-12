@@ -15,6 +15,8 @@ const Form = () => {
     amount: 0,
     narration: '',
     date: '',
+    paymentMethod: '',
+    currency: '',
   });
 
   const clear = () => {
@@ -25,20 +27,22 @@ const Form = () => {
       amount: 0,
       narration: '',
       date: '',
+      paymentMethod: '',
+      currency: '',
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-   await axios
+    await axios
       .post('https://church-payment.herokuapp.com/payments', { ...paymentData })
       .then((res) => {
         console.log(res);
       });
 
     clear();
-   await history.push('/record');
+    await history.push('/record');
   };
 
   return (
@@ -81,7 +85,7 @@ const Form = () => {
                 />
               </label>
             </div>
-            <div className='form-element'>
+            <div className='form-element currency-amount'>
               <label>
                 Payment Type
                 <select
@@ -100,8 +104,23 @@ const Form = () => {
                   <option value='Others'>Others</option>
                 </select>
               </label>
+              <label>
+                Payment Method
+                <input
+                  type='text'
+                  value={paymentData.paymentMethod}
+                  required
+                  onChange={(event) =>
+                    setPaymentData({
+                      ...paymentData,
+                      paymentMethod: event.target.value,
+                    })
+                  }
+                  placeholder='Enter payment method...'
+                />
+              </label>
             </div>
-            <div className='form-element'>
+            <div className='form-element currency-amount'>
               <label>
                 Amount
                 <input
@@ -116,6 +135,24 @@ const Form = () => {
                   }
                   placeholder='Enter your amount...'
                 />
+              </label>
+              <label>
+                Currency
+                <select
+                  value={paymentData.currency}
+                  required
+                  onChange={(event) =>
+                    setPaymentData({
+                      ...paymentData,
+                      currency: event.target.value,
+                    })
+                  }>
+                  <option value='Default'>Select Currency</option>
+                  <option value='GHS'>GHS</option>
+                  <option value='USD'>USD</option>
+                  <option value='EURO'>EURO</option>
+                  <option value='Others'>Others</option>
+                </select>
               </label>
             </div>
             <div className='form-element'>

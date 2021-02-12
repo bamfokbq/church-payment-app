@@ -42,7 +42,7 @@
 .form-element input,
 .form-element select,
 .form-element textarea{
-   width: 100%;
+  width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
   border: 1px solid #ddd;
@@ -57,9 +57,10 @@
 }
 
 .form-element select option{
-    background-color: #6FCA6D;
+    background-color: rgb(44, 44, 44);
     color: #fff;
 }
+
 input[type='date']{
     /* position: absolute; */
     /* left: 0;
@@ -112,3 +113,13 @@ background-color: #F48484;
     
 }
 
+/* CURRENCY AND AMOUNT DIV */
+.currency-amount{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.currency-amount label{
+    width: 50%;
+}

@@ -13,7 +13,7 @@ const Search = () => {
     <div className='search-bar'>
       <Link to='/payment'>Add Payment Record</Link>
       <button onClick={() => generatePDF(reports)}>Print Records</button>
-      <input type='search' placeholder='Search' />
+      {/* <input type='search' placeholder='Search' /> */}
     </div>
   );
 };
