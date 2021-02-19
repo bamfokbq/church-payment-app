@@ -106,8 +106,7 @@ const Form = () => {
               </label>
               <label>
                 Payment Method
-                <input
-                  type='text'
+                <select
                   value={paymentData.paymentMethod}
                   required
                   onChange={(event) =>
@@ -115,9 +114,13 @@ const Form = () => {
                       ...paymentData,
                       paymentMethod: event.target.value,
                     })
-                  }
-                  placeholder='Enter payment method...'
-                />
+                  }>
+                  <option value='Default'>Choose mode of payment</option>
+                  <option value='Cash'>Cash</option>
+                  <option value='MOMO'>MOMO</option>
+                  <option value='Bank Transfer'>Bank Transfer</option>
+                  <option value='Others'>Others</option>
+                </select>
               </label>
             </div>
             <div className='form-element currency-amount'>
