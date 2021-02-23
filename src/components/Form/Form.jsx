@@ -7,8 +7,9 @@ import Header from '../Header/Header';
 const Form = () => {
   const [isOpen] = useState(false);
   const history = useHistory();
-  const [set, setCount] = useState(0);
-  const [increase, setIncrease] = useState('A0000');
+
+  
+
   const [paymentData, setPaymentData] = useState({
     memberName: '',
     telephone: '',
@@ -36,40 +37,6 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const handleIncrement = () => {
-      setCount(set + 1);
-      if (set === 99) {
-        setIncrease('A000');
-        setPaymentData({
-          ...paymentData,
-          order: increase,
-        });
-      }
-      if (set === 999) {
-        setIncrease('A00');
-        setPaymentData({
-          ...paymentData,
-          order: increase,
-        });
-      }
-      if (set === 9999) {
-        setIncrease('A0');
-        setPaymentData({
-          ...paymentData,
-          order: increase,
-        });
-      }
-      if (set === 99999) {
-        setIncrease('A');
-        setPaymentData({
-          ...paymentData,
-          order: increase,
-        });
-      }
-    };
-    handleIncrement();
-
     await axios
       .post('https://church-payment.herokuapp.com/payments', { ...paymentData })
       .then((res) => {
