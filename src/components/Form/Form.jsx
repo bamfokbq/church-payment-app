@@ -8,8 +8,6 @@ const Form = () => {
   const [isOpen] = useState(false);
   const history = useHistory();
 
-  
-
   const [paymentData, setPaymentData] = useState({
     memberName: '',
     telephone: '',
@@ -37,7 +35,9 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     await axios
+      // https://church-payment.herokuapp.com/payments
       .post('https://church-payment.herokuapp.com/payments', { ...paymentData })
       .then((res) => {
         console.log(res);

@@ -62,6 +62,10 @@ const InfoPreview = () => {
           <p>By</p>
           <p className='border'>{payment.memberName}</p>
         </div>
+        <div className='content__info'>
+          <p>Type</p>
+          <p className='border'>{payment.paymentType}</p>
+        </div>
       </div>
       <div className='payment__mode'>
         <h4>PAID WITH {payment.paymentMethod}</h4>
