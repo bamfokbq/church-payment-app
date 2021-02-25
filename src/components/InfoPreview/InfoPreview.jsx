@@ -9,6 +9,8 @@ const InfoPreview = () => {
   const { id } = useParams();
   const [payment, setPayment] = useState([]);
   const [show, setShow] = React.useState(true);
+  const date = new Date();
+  const currentDate = moment(date).format('MMMM Do YYYY');
 
   useEffect(() => {
     const fetchPayment = async () => {
@@ -34,14 +36,22 @@ const InfoPreview = () => {
       <div className='title'>
         <img src={logo} alt='Church Logo' />
         <h4 className='church__name'>Latebiorkorshie Circuit Grace Society</h4>
-        <p>{moment().format('MMM Do YY').toUpperCase()}</p>
+        <p>{currentDate}</p>
       </div>
-
+      <div className='receipt'>
+        <p className='receipt-narration'>Receipt</p>
+        <div className='invoice'>
+          <p className='number'>INVOICE NO:</p>{' '}
+          <p className='border invoice-number'>
+            {payment._id}
+          </p>
+        </div>
+      </div>
       <div className='content'>
         <div className='content__info'>
           <p>Date</p>
           <p className='border'>
-            {moment(payment.date).format('MMMM Do YYYY')}
+            {moment(payment.date).format('Do MMMM YYYY')}
           </p>
         </div>
         <div className='content__info'>
@@ -60,7 +70,7 @@ const InfoPreview = () => {
         </div>
         <div className='content__info'>
           <p>By</p>
-          <p className='border'>{payment.memberName}</p>
+          <p className='border'>{payment.admin}</p>
         </div>
         <div className='content__info'>
           <p>Type</p>
@@ -89,3 +99,7 @@ const InfoPreview = () => {
 };
 
 export default InfoPreview;
+
+//60368dc96fbdf800154f589b //68d589b
+//60368e2e6fbdf800154f589c //68e589c
+//603768cbff70cb00151e06f2 //76806f2

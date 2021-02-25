@@ -74,7 +74,6 @@ const Form = () => {
               <label>
                 Contact Number
                 <input
-                  type='tel'
                   value={paymentData.telephone}
                   required
                   onChange={(event) =>
@@ -185,6 +184,23 @@ const Form = () => {
                   onChange={(event) =>
                     setPaymentData({ ...paymentData, date: event.target.value })
                   }
+                />
+              </label>
+            </div>
+            <div className='form-element'>
+              <label>
+                Entered By
+                <input
+                  type='text'
+                  value={paymentData.admin}
+                  required
+                  onChange={(event) =>
+                    setPaymentData({
+                      ...paymentData,
+                      admin: event.target.value,
+                    })
+                  }
+                  placeholder='Enter the name of admin.....'
                 />
               </label>
             </div>
